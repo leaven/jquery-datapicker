@@ -4,3 +4,17 @@
 
 ## 实现
 >  通过在`dom`元素中加入我们自定义的`data-*`属性值，利用JS冒泡机制监听容器的点击事件，并在点击的时候触发我们自定义的回调事件。
+
+## 用法
+>  **HTML**
+
+>  `<body data-login="true"></body>`
+
+> **JS**
+
+> `$("body").dataPicker({
+			attr : "login",
+			callback : function() {
+				alert("login");
+			}
+		});`
