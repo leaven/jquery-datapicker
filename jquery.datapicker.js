@@ -5,7 +5,7 @@
 	$.fn.dataPicker =  function(options) {
 		
 		var datapicker = new DataPicker(this, options);
-		return domsel.init();
+		return datapicker.init();
 	}
 
 
@@ -23,17 +23,17 @@
 			var self = this;
 			this.$element.bind(self.settings.event, function(event) {
 				var $se = $(event.target);
-				if(typeof $se.data("click-cache") !== 'undefined')
+				if(typeof $se.data(self.settings.attr+"click-cache") !== 'undefined')
 					return ;
 				//增加cache，防止重复点击
-				$se.data("click-cache", true);
+				$se.data(self.settings.attr+"click-cache", true);
 				var $loginDom = $se.data(self.settings.attr);
 				if(typeof $loginDom === 'undefined') {
 					$loginDom = $se.parents("[data-"+self.settings.attr+"]")
 				}
 				if(typeof $loginDom !== "undefined" && $loginDom.length != 0) {
 					self.settings.callback();
-					$se.removeData("click-cache");
+					$se.removeData(self.settings.attr+"click-cache");
 				}
 			});
 		}
