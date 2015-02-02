@@ -32,7 +32,7 @@
 					$loginDom = $se.parents("[data-"+self.settings.attr+"]")
 				}
 				if(typeof $loginDom !== "undefined" && $loginDom.length != 0) {
-					self.settings.callback();
+					self.settings.callback($se);
 					$se.removeData(self.settings.attr+"click-cache");
 				}
 			});
